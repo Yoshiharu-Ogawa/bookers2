@@ -4,10 +4,10 @@ class BooksController < ApplicationController
   end
 
   def create
-    @post_book = Book.new(book_params)
+    @post_book = Book.new
     @post_book.user_id = current_user.id
     @post_book.save
-    redirect_to book_path(params[:id])
+    redirect_to book_path(current_user)
   end
 
   def index
