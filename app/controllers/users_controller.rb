@@ -3,6 +3,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def edit
+  def index
   end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+  end
+
 end
