@@ -2,17 +2,17 @@
 
 <div class="container px-5 px-sm-0">
   <div id="error_explanation">
-    <% if Book.create.errors.any? %>
-      <h3><%= Book.create.errors.count %> error prohidited this obj from being saved:</h3>
+    <% if @post_book.errors.any? %>
+      <h3><%= @post_book.errors.count %> error prohidited this obj from being saved:</h3>
       <ul>
-        <% Book.create.errors.full_messages.each do |message| %>
+        <% @post_book.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     <% end %>
   </div>
   <div class="row">
-    <%= render 'user_info', user: current_user %>
+    <%= render partial: 'user_info', locals: {user: current_user, post_book: @post_book}  %>
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table table-hover table-inverse">
