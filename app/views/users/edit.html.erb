@@ -6,7 +6,18 @@
 
       <h2>User info</h2>
 
-      <%= form_with model: @user do |f| %>
+      <div id="error_explanation">
+        <% if @user_update.errors.any? %>
+          <h3><%= @user_update.errors.count %> error prohidited this obj from being saved:</h3>
+          <ul>
+            <% @user_update.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
+      <%= form_with model: @user_update do |f| %>
 
       <div class="form-group">
         <label for="user_Name">Name</label>

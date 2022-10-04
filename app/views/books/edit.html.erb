@@ -3,17 +3,19 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <% if @book_update.errors.any? %>
-        <h3><%= @book_update.errors.count %> error prohidited this obj from being saved:</h3>
-        <ul>
-          <% @book_update.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-        <% end %>
       <h1>Editing Book</h1>
+      <div id="error_explanation">
+        <% if @book_update.errors.any? %>
+          <h3><%= @book_update.errors.count %> error prohidited this obj from being saved:</h3>
+          <ul>
+            <% @book_update.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
 
-      <%= form_with model: @book do |f| %>
+      <%= form_with model: @book_update do |f| %>
 
         <div class="form-group">
           <label for="book_title">Title</label>
@@ -31,7 +33,7 @@
 
       <% end %>
 
-      <%= link_to 'Show', book_path(@book.id) %> | <%= link_to 'Back', :back %>
+      <%= link_to 'Show', book_path(@book_update.id) %> | <%= link_to 'Back', :back %>
 
     </div>
   </div>
