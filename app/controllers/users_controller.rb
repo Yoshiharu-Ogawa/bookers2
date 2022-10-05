@@ -13,6 +13,11 @@ class UsersController < ApplicationController
 
   def edit
     @user_update = User.find(params[:id])
+    if @user_update == current_user
+      render :edit
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
