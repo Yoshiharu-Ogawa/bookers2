@@ -19,13 +19,13 @@
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggle-icon"><i class="fas fa-bars"></i></span>
+            <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse show" id="navbarNavDropdown">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               <li>
-                <%= link_to root_path, class: 'nav-link text-light', method: :get do %>
+                <%= link_to user_path(current_user), class: 'nav-link text-light', method: :get do %>
                   <i class="fas fa-home"></i> Home
                 <% end %>
               </li>
@@ -36,7 +36,7 @@
               </li>
               <li>
                 <%= link_to books_path, class: 'nav-link text-light', method: :get do %>
-                  <i class="fa-solid fa-book-open"></i> Books
+                  <i class="fas fa-book-open"></i> Books
                 <% end %>
               </li>
               <li>
@@ -51,7 +51,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to homes_about_path, class: 'nav-link text-light', method: :get do %>
+                <%= link_to home_about_path, class: 'nav-link text-light', method: :get do %>
                   <i class="fas fa-link"></i> About
                 <% end %>
               </li>
